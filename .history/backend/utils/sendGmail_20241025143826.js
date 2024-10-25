@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 const config = require("../config/config");
 const { google } = require("googleapis");
 
-async function sendGmail({ to, subject, text, html }) {
+async function sendGmail({to, subject, text}) {
   const OAuth2 = google.auth.OAuth2;
   const oauth2Client = new OAuth2(
     config.email.smtp.auth.clientId,
@@ -42,20 +42,15 @@ async function sendGmail({ to, subject, text, html }) {
   if (!subject) {
     throw new Error("No subject provided");
   }
-  if (!text && !html) {
-    throw new Error("Either text or HTML content must be provided");
+  if (!text) {
+    throw new Error("No text provided");
   }
 
-  if (text && html) {
-    throw new Error(
-      "Please provide only one of text or HTML content, not both"
-    );
-  }
   const mailOptions = {
     from: `${from.name} <${from.email}>`,
     to: to,
-    ...(text && { text }), // Only include text if it's provided
-    ...(html && { html }), // Only include html if it's provided
+    subject: subject,
+    text: text,
   };
 
   await transporter.sendMail(mailOptions, (error, info) => {

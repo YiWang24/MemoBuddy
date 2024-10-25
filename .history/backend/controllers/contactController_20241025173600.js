@@ -34,7 +34,7 @@ const contactController = {
         html: htmlContent,
       });
       return res.status(200).json({ message: "Email sent successfully." });
-    } catch (error) {
+    } catch (err) {
       console.error(error);
       return res.status(500).json({ message: "Error sending email." });
     }
