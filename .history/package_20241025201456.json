@@ -1,15 +1,13 @@
 {
   "name": "MemoBuddy",
   "version": "1.0.0",
-  "description": "MemoBuddy Full Stack Application",
   "private": true,
   "scripts": {
+    "start": "concurrently \"npm run start --prefix backend\" \"npm run start --prefix frontend\"",
+    "install": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "start:backend": "cd backend && npm run start",
-    "start:frontend": "cd frontend && npm run dev",
-    "install": "concurrently \"npm run install:backend\" \"npm run install:frontend\"",
-    "install:backend": "cd backend && npm install",
-    "install:frontend": "cd frontend && npm install",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
     "clean": "rimraf node_modules **/node_modules"
   },

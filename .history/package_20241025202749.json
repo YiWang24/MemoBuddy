@@ -4,12 +4,11 @@
   "description": "MemoBuddy Full Stack Application",
   "private": true,
   "scripts": {
-    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start": "concurrently \"npm run start:backend\" \"npm run dev:frontend\"",
     "start:backend": "cd backend && npm run start",
     "start:frontend": "cd frontend && npm run dev",
-    "install": "concurrently \"npm run install:backend\" \"npm run install:frontend\"",
-    "install:backend": "cd backend && npm install",
-    "install:frontend": "cd frontend && npm install",
+    "install": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "install:backend"
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
     "clean": "rimraf node_modules **/node_modules"
   },
