@@ -1,10 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/(auth)/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/chunks/app/(auth)/login/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -12,10 +11,10 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(auth)/login/page": [
+    "/(auth)/register/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/login/page.js"
+      "static/chunks/app/(auth)/register/page.js"
     ],
     "/(protected)/diary/page": [
       "static/chunks/webpack.js",
@@ -23,17 +22,10 @@
       "static/css/app/(protected)/diary/page.css",
       "static/chunks/app/(protected)/diary/page.js"
     ],
-    "/contact/page": [
+    "/(auth)/forgot-password/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/contact/page.css",
-      "static/chunks/app/contact/page.js"
-    ],
-    "/about/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/about/page.css",
-      "static/chunks/app/about/page.js"
+      "static/chunks/app/(auth)/forgot-password/page.js"
     ]
   }
 }
