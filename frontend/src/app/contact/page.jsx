@@ -3,10 +3,17 @@ import Link from "next/link";
 import "./style.css";
 
 export default function Wrapper() {
+
+  const handleSubmit = async (values) => {
+    
+  };
+
+
   return (
     <div className="wrapper">
+      <div className="border-spacing-y-5 border-red-500  border ">Yi Wang</div> 
       <div className="div">
-        <div className="banner">
+        <div className="banner" onClick={handleSubmit}>
           <img
             className="element"
             alt="Element"
