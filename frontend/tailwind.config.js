@@ -10,6 +10,8 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        homeBtnBg: 'rgba(249, 248, 255, 0.75)',
+        cost: 'rgb(77 77 77)',
       },
     },
   },
