@@ -29,8 +29,10 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className='p-2'>
-                        <div className='border-black border-2 h-[500px]'>
-
+                        <div className='border-black border-2 h-[500px] grid place-items-center'>
+                            <div>
+                                <Button>Add</Button>
+                            </div>
                         </div>
                     </div>
                 </div>
