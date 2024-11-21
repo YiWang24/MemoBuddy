@@ -14,11 +14,13 @@ const Banner = () => {
                     Protect your thoughts
                 </h1>
 
-                <button className="bg-homeBtnBg hover:bg-black hover:text-white hover:border-white font-semibold px-6 py-3 rounded-lg text-lg border-2 border-black text-black transition duration-300 ease-in-out">
-                    Get Started
-                </button>
-            </div >
-        </div >
+                <a href="/register">
+                    <button className="bg-homeBtnBg hover:bg-black hover:text-white hover:border-white font-semibold px-6 py-3 rounded-lg text-lg border-2 border-black text-black transition duration-300 ease-in-out">
+                        Get Started
+                    </button>
+                </a>
+            </div>
+        </div>
     );
 };
 

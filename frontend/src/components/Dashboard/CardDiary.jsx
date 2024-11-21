@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrashIcon, LockClosedIcon } from '@heroicons/react/outline';
+import { TrashIcon, LockClosedIcon, LockOpenIcon } from '@heroicons/react/outline';
 
 const CardDiary = ({ title }) => {
     return (

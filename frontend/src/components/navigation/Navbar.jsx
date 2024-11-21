@@ -8,7 +8,7 @@ import { message } from "antd";
 
 const Navbar = () => {
 
-    const [current, setCurrent] = useState("Home");
+    // const [current, setCurrent] = useState("Home");
     const [authStatus, setAuthStatus] = useState(false);
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const dispatch = useDispatch();
@@ -35,23 +35,43 @@ const Navbar = () => {
                     <a href="/"><img src={"/logo.svg"} alt="memmobuddy" height={150} width={150}></img></a>
                 </div>
 
-                <ul className="hidden md:flex space-x-6">
-                    <li>
-                        <a href="/" className="hover:font-semibold">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/about" className="hover:font-semibold">
-                            About
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#services" className="hover:font-semibold">
-                            Services
-                        </a>
-                    </li>
-                </ul>
+                {
+                    authStatus ?
+                        (
+                            <ul className="hidden md:flex space-x-6">
+                                <li>
+                                    <a href="/diary" className="hover:font-semibold">
+                                        Diary
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/contact" className="hover:font-semibold">
+                                        Contact
+                                    </a>
+                                </li>
+                            </ul>
+                        ) :
+                        (
+                            <ul className="hidden md:flex space-x-6">
+                                <li>
+                                    <a href="/" className="hover:font-semibold">
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/about" className="hover:font-semibold">
+                                        About
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/contact" className="hover:font-semibold">
+                                        Services
+                                    </a>
+                                </li>
+                            </ul>
+                        )
+                }
+
 
                 {/* Buttons */}
                 <div className="space-x-4">

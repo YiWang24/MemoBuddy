@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const Values = () => {
     return (
-        <section className="py-20 bg-gray-100">
+        <section className="pt-20 pb-24 bg-gray-100">
             <div className="container mx-auto px-16">
                 {/* Section Heading */}
                 <h2 className="text-3xl md:text-5xl font-bold text-center mb-14 uppercase">
