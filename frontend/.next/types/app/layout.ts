@@ -1,4 +1,4 @@
-// File: /Users/komalpreetsingh/Documents/university/MemoBuddy/frontend/src/app/layout.jsx
+// File: E:\W1work\YorkUniversity\2024Fall\EECS1012\1.Project\MemoBuddy\frontend\src\app\layout.jsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
