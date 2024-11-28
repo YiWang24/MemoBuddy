@@ -1,7 +1,7 @@
 "use client";
 import Button from "./Button";
 import React from "react";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchLogout } from "@/lib/features/auth/authSlice";
 import { useRouter } from "next/navigation";
 import { message } from "antd";
@@ -16,14 +16,14 @@ const Navbar = ({ isAuthenticated }) => {
   };
   const navLinks = isAuthenticated
     ? [
-        { href: "/diary", label: "Diary" },
-        { href: "/contact", label: "Contact" },
-      ]
+      { href: "/diary", label: "Diary" },
+      { href: "/contact", label: "Contact" },
+    ]
     : [
-        { href: "/", label: "Home" },
-        { href: "/about", label: "About" },
-        { href: "/contact", label: "Services" },
-      ];
+      { href: "/", label: "Home" },
+      { href: "/about", label: "About" },
+      { href: "/contact", label: "Contact" },
+    ];
 
   return (
     <div className="bg-white text-black px-6 py-4 border-b-2 border-black">
