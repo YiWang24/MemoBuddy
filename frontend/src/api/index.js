@@ -1,5 +1,6 @@
 import { weatherApi } from "./weather";
 import { authApi } from "./auth";
 import { location } from "./location";
-import { diary } from "./diary";
-export { weatherApi, authApi, location, diary };
+import { diaryApi } from "./diary";
+import { contactApi } from "./contact";
+export { weatherApi, authApi, location, diaryApi, contactApi };
