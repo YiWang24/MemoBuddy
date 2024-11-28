@@ -11,7 +11,7 @@ const FAQ = () => {
     const faqs = [
         {
             question: "What is a password-protected diary?",
-            answer: "It's a digital application designed for secure journaling. It allows users to write, save, and organize personal entries while safeguarding them with a password. This ensures privacy and prevents unauthorized access to sensitive thoughts or information.",
+            answer: "It's a digital application designed for secure journaling. It allows users to write, save, and organize personal entries while safeguarding them with a password. This ensures privacy and prevents unauthorized access to sensitive thoughts or information."
         },
         {
             question: "What  should I do if I forget my password? ",

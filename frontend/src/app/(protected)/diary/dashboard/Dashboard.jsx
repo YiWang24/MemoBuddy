@@ -1,8 +1,10 @@
 import React from 'react'
 import CardDiary from '@/components/Dashboard/CardDiary';
 import Button from '@/components/navigation/Button';
+// import location from '../../../../api/location';
 
 const Dashboard = () => {
+    // const a = location.getLocation();
     return (
         <div>
             <div className='grid grid-cols-[1fr_3fr] h-[90vh] gap-4 p-6 overflow-auto'>

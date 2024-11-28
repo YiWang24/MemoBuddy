@@ -1,4 +1,4 @@
-// File: E:\W1work\YorkUniversity\2024Fall\EECS1012\1.Project\MemoBuddy\frontend\src\app\(protected)\diary\page.jsx
+// File: /Users/komalpreetsingh/Documents/university/MemoBuddy/frontend/src/app/(protected)/diary/page.jsx
 import * as entry from '../../../../../src/app/(protected)/diary/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
