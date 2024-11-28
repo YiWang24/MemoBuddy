@@ -1,165 +1,85 @@
 import React from "react";
 import Link from "next/link";
 import "./style.css";
-export default function Wrapper() {
+import MeetOurTeam from "@/components/about/MeetOurTeam";
+import AboutBanner from "@/components/about/AboutBanner";
+import FeedbackForm from "@/components/about/FeedbackForm";
+
+export default function page() {
   return (
-    <div className="wrapper">
-      <div className="div">
-        <div className="frame">
-          <Link href="/about">
-            <div className="text-wrapper">About Us</div>
-          </Link>
-        </div>
+    <main className="about-page">
 
-        <div className="navbar">
-          <Link href="/login">
-            <button className="button">
-              <div className="text-wrapper-2">Login</div>
-            </button>
-          </Link>
-          <div className="nav-links">
-            <Link href="/">
-              <div className="text-wrapper-3">Home</div>
-            </Link>
-            <Link href="/about">
-              <div className="text-wrapper-4">About</div>
-            </Link>
-            <Link href="/contact">
-              <div className="text-wrapper-5">Contact</div>
-            </Link>
-          </div>
+      {/* <section className="hero-section">
+        <h2 className="hero-title">About Us</h2>
+      </section> */}
 
-          <Link href="/register">
-            <button className="div-wrapper">
-              <div className="text-wrapper-2">Register</div>
-            </button>
-          </Link>
+      <section className="welcome-section">
+        <h2 className="welcome-title">Welcome to Our Secure Diary</h2>
+        <p className="welcome-description">
+          Our password-protected diary is designed to offer a safe and private
+          space for your thoughts, memories, and daily reflections. With
+          user-friendly features and advanced encryption, we ensure that your
+          entries remain secure and accessible only to you. Whether you’re
+          documenting your goals or sharing your daily experiences, our diary
+          is your trusted companion.
+          <br />
+          <br />
+          <strong>Your privacy, our priority.</strong>
+        </p>
+      </section>
 
-          <div className="text-wrapper-6">MemoBuddy</div>
-        </div>
+      <AboutBanner></AboutBanner>
 
-        <div className="overlap">
-          <div className="frame-2">
-            <p className="p">Welcome to Our Secure Diary</p>
-          </div>
-
-          <div className="frame-3">
-            <div className="text-wrapper-7">Meet Our Team</div>
-          </div>
-
-          <div className="our-password-wrapper">
-            <p className="our-password">
-              <span className="span">
-                {" "}
-                <br />
-              </span>
-
-              <span className="text-wrapper-8">
-                Our password-protected diary is designed to offer a safe and
-                private space for your thoughts, memories, and daily
-                reflections. With user-friendly features and advanced
-                encryption, we ensure that your entries remain secure and
-                accessible only to you. Whether you’re documenting your goals or
-                sharing your daily experiences, our diary is your trusted
-                companion. <br /> <br />
-                Your privacy, our priority
-              </span>
-
-              <span className="span">
-                . <br />
-              </span>
+      {/* <section className="team-section">
+        <h2 className="team-title">Meet Our Team</h2>
+        <div className="team-container">
+          <article className="team-member1">
+            <h3><b>Fares Islam</b></h3>
+            <br></br>
+            <p>
+              Frontend-Developer
+              <br />
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
             </p>
-          </div>
-
-          <div className="overlap-group-wrapper">
-            <div className="overlap-group">
-              <div className="rectangle" />
-
-              <p className="fares-islam-content">
-                <span className="text-wrapper-9">Fares Islam</span>
-
-                <span className="text-wrapper-10">
-                  Content strategist
-                  <br />
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </span>
-              </p>
-            </div>
-          </div>
-
-          <div className="overlap-wrapper">
-            <div className="overlap-2">
-              <div className="text-wrapper-11">Komalpreet Singh</div>
-
-              <p className="UI-designer-lorem">
-                UI Designer
-                <br />
-                <br />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-            </div>
-          </div>
-
-          <div className="frame-4">
-            <div className="yi-wang-developer-wrapper">
-              <p className="yi-wang-developer">
-                <span className="text-wrapper-12">
-                  Yi Wang Developer{"   "}
-                </span>
-
-                <span className="text-wrapper-10">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.veloper
-                </span>
-              </p>
-            </div>
-          </div>
-
-          <div className="frame-5">
-            <p className="text-wrapper-7">Can you help us improve?</p>
-          </div>
+          </article>
+          <article className="team-member2">
+            <h3> <b>Komalpreet Singh</b></h3>
+            <br></br>
+            <p>
+              UI Designer/Backend-Developer
+              <br />
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </article>
+          <article className="team-member3">
+            <h3><b>Yi Wang</b></h3>
+            <br></br>
+            <p>
+              Did nothing
+              <br />
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </article>
         </div>
+      </section> */}
 
-        <div className="frame-6">
-          <div className="text-wrapper-13">Name</div>
-
-          <img
-            className="img"
-            alt="Rectangle"
-            src="https://c.animaapp.com/0bu2SKsP/img/rectangle-52.svg"
-          />
-
-          <div className="text-wrapper-14">Email</div>
-
-          <div className="rectangle-2" />
-
-          <div className="text-wrapper-15">Feedback</div>
-
-          <div className="rectangle-3" />
-
-          <div className="frame-7">
-            <div className="text-wrapper-16">Submit</div>
-          </div>
-        </div>
-
-        <footer className="footer">
-          <p className="designed-developed">
-            Designed &amp; Developed by tech army
-          </p>
-
-          <p className="text-wrapper-17">
-            © MemoBuddy 2024 | All Rights Reserved
-          </p>
-        </footer>
-      </div>
-    </div>
+      <MeetOurTeam></MeetOurTeam>
+      <h2 className='text-center p-6 text-3xl mt-6 font-semibold'>
+        Can you help us improve?
+      </h2>
+      <FeedbackForm></FeedbackForm>
+    </main>
   );
 }
