@@ -17,9 +17,9 @@ const Dashboard = ({ newNote, setNewNote, newCheck, setNewCheck }) => {
         setNewCheck(false);
         console.log(value);
         try {
-            const response = await diaryApi.createDiary({ value })
+            const response = await diaryApi.createDiary({ content: value })
             if (response.status === 200) {
-                alert("Your message has been submitted successfully!");
+                alert("Your diary has been saved successfully");
             } else {
                 alert("There was an issue submitting your message. Please try again.");
             }
