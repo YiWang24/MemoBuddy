@@ -1,13 +1,7 @@
 {
-<<<<<<< HEAD
   "/contact/page": "app/contact/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
-=======
-  "/_not-found/page": "app/_not-found/page.js",
-  "/(auth)/forgot-password/page": "app/(auth)/forgot-password/page.js",
->>>>>>> 3b81d0342942258aeab2c9764d4ad190bb0a97ed
   "/page": "app/page.js",
+  "/about/page": "app/about/page.js",
   "/(auth)/register/page": "app/(auth)/register/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/(protected)/diary/page": "app/(protected)/diary/page.js"
+  "/(auth)/forgot-password/page": "app/(auth)/forgot-password/page.js"
 }
