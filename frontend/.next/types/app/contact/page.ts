@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // File: /Users/komalpreetsingh/Documents/university/MemoBuddy/frontend/src/app/contact/page.jsx
+=======
+// File: E:\W1work\YorkUniversity\2024Fall\EECS1012\1.Project\MemoBuddy\frontend\src\app\contact\page.jsx
+>>>>>>> f619daa71db1a3df8f3e49058725a89ee40add78
 import * as entry from '../../../../src/app/contact/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

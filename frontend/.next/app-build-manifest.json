@@ -18,10 +18,17 @@
       "static/css/app/about/page.css",
       "static/chunks/app/about/page.js"
     ],
+<<<<<<< HEAD
     "/(auth)/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(auth)/login/page.js"
+=======
+    "/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/contact/page.js"
+>>>>>>> f619daa71db1a3df8f3e49058725a89ee40add78
     ],
     "/(protected)/diary/page": [
       "static/chunks/webpack.js",
@@ -29,10 +36,22 @@
       "static/css/app/(protected)/diary/page.css",
       "static/chunks/app/(protected)/diary/page.js"
     ],
+<<<<<<< HEAD
     "/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/contact/page.js"
+=======
+    "/(auth)/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(auth)/login/page.js"
+    ],
+    "/(auth)/forgot-password/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(auth)/forgot-password/page.js"
+>>>>>>> f619daa71db1a3df8f3e49058725a89ee40add78
     ]
   }
 }
