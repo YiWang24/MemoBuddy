@@ -29,52 +29,6 @@ export default function page() {
       </section>
 
       <AboutBanner></AboutBanner>
-
-      {/* <section className="team-section">
-        <h2 className="team-title">Meet Our Team</h2>
-        <div className="team-container">
-          <article className="team-member1">
-            <h3><b>Fares Islam</b></h3>
-            <br></br>
-            <p>
-              Frontend-Developer
-              <br />
-              <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </article>
-          <article className="team-member2">
-            <h3> <b>Komalpreet Singh</b></h3>
-            <br></br>
-            <p>
-              UI Designer/Backend-Developer
-              <br />
-              <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </article>
-          <article className="team-member3">
-            <h3><b>Yi Wang</b></h3>
-            <br></br>
-            <p>
-              Did nothing
-              <br />
-              <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </article>
-        </div>
-      </section> */}
-
       <MeetOurTeam></MeetOurTeam>
       <h2 className='text-center p-6 text-3xl mt-6 font-semibold'>
         Can you help us improve?

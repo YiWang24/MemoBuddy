@@ -60,7 +60,7 @@ const diaryController = {
   async createDiary(req, res, next) {
     try {
       const { title, content } = req.body;
-      if ( !content) {
+      if (!content) {
         throw new Error("All fields are required");
       }
       const images = req.files ? req.files.map((file) => "/" + file.path) : [];
