@@ -1,17 +1,33 @@
-import React from 'react'
+"use client";
+import React, { useState } from 'react'
 import CardDiary from '@/components/Dashboard/CardDiary';
 import Button from '@/components/navigation/Button';
 import DiaryText from '@/components/Dashboard/DiaryText';
+import { diaryApi } from '@/api';
 // import location from '../../../../api/location';
 
 const Dashboard = ({ newNote, setNewNote, newCheck, setNewCheck }) => {
     // const a = location.getLocation();
+    const [value, setValue] = useState('');
     const handleAdd = () => {
         setNewCheck(true);
     }
 
-    const handleSave = () => {
+    const handleSave = async () => {
         setNewCheck(false);
+        console.log(value);
+        try {
+            const response = await diaryApi.createDiary({ value })
+            if (response.status === 200) {
+                alert("Your message has been submitted successfully!");
+            } else {
+                alert("There was an issue submitting your message. Please try again.");
+            }
+        }
+        catch (e) {
+            console.log("NO response");
+            console.log(e)
+        }
     }
     return (
         <div>
@@ -42,7 +58,7 @@ const Dashboard = ({ newNote, setNewNote, newCheck, setNewCheck }) => {
                         <div className='border-black border-2 h-[500px] grid place-items-center'>
                             {
                                 newCheck ?
-                                    (<DiaryText handleSave={handleSave}></DiaryText>) :
+                                    (<DiaryText value={value} setValue={setValue} handleSave={handleSave}></DiaryText>) :
                                     (<div>
                                         <Button onClick={handleAdd}>Add</Button>
                                     </div>)

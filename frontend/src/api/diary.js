@@ -3,7 +3,7 @@ import { API_ROUTES } from "../constants/index";
 
 export const diaryApi = {
   createDiary: async (data) => {
-    return await request.post(API_ROUTES.DIARY.LIST, data);
+    return await request.post(API_ROUTES.DIARY.CREATE, data);
   },
   getDiaries: async () => {
     return await request.get(API_ROUTES.DIARY.LIST);

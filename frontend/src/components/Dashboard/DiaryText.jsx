@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Button from '../navigation/Button';
 
-function DiaryText({ handleSave }) {
-    const [value, setValue] = useState('');
+function DiaryText({ value, setValue, handleSave }) {
+    // const [value, setValue] = useState('');
 
     const handleChange = (e) => {
         setValue(e.target.value);
