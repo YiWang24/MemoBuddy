@@ -15,11 +15,11 @@ const Dashboard = ({ newNote, setNewNote, newCheck, setNewCheck }) => {
 
   const handleSave = async () => {
     setNewCheck(false);
-  
+    console.log(value);
     try {
-      const response = await diaryApi.createDiary({ content:value });
-      console.log(response);
-      if (response.status === 201) {
+      console.log(value);
+      const response = await diaryApi.createDiary({ value });
+      if (response.status === 200) {
         alert("Your message has been submitted successfully!");
       } else {
         alert("There was an issue submitting your message. Please try again.");

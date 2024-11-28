@@ -49,7 +49,7 @@ const diarySchema = new Schema(
   {
     title: {
       type: String,
-      required: false,
+      required: fa,
     },
     content: {
       type: String,
