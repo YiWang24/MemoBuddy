@@ -1,7 +1,0 @@
-{
-  "/about/page": "app/about/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/(auth)/forgot-password/page": "app/(auth)/forgot-password/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/(protected)/diary/page": "app/(protected)/diary/page.js"
-}

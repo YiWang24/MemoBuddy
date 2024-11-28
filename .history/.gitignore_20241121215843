@@ -1,3 +1,4 @@
+
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
@@ -42,10 +43,3 @@ coverage/
 *.bak
 *.old
 *.orig
-
-# Ignore package-lock.json
-package-lock.json
-
-# Next.js build directory
-.next
-**/.next
