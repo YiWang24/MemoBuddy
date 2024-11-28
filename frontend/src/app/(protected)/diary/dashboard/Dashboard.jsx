@@ -1,10 +1,18 @@
 import React from 'react'
 import CardDiary from '@/components/Dashboard/CardDiary';
 import Button from '@/components/navigation/Button';
+import DiaryText from '@/components/Dashboard/DiaryText';
 // import location from '../../../../api/location';
 
-const Dashboard = () => {
+const Dashboard = ({ newNote, setNewNote, newCheck, setNewCheck }) => {
     // const a = location.getLocation();
+    const handleAdd = () => {
+        setNewCheck(true);
+    }
+
+    const handleSave = () => {
+        setNewCheck(false);
+    }
     return (
         <div>
             <div className='grid grid-cols-[1fr_3fr] h-[90vh] gap-4 p-6 overflow-auto'>
@@ -32,9 +40,16 @@ const Dashboard = () => {
                     </div>
                     <div className='p-2'>
                         <div className='border-black border-2 h-[500px] grid place-items-center'>
-                            <div>
-                                <Button>Add</Button>
-                            </div>
+                            {
+                                newCheck ?
+                                    (<DiaryText handleSave={handleSave}></DiaryText>) :
+                                    (<div>
+                                        <Button onClick={handleAdd}>Add</Button>
+                                    </div>)
+                            }
+                            {/*  */}
+
+
                         </div>
                     </div>
                 </div>
