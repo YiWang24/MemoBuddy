@@ -17,6 +17,7 @@ export const locationApi = {
         );
         const check = sessionStorage.getItem("user-coordinate")
         console.log(check);
+        return userCoordinates
       });
     } else {
       console.log("No support available");

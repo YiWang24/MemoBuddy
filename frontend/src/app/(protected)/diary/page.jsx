@@ -70,10 +70,10 @@ export default function dashboard() {
           prevList.map((diary) =>
             diary.id === selectedDiaryId
               ? {
-                  ...diary,
-                  title: diaryData.title,
-                  content: diaryData.content,
-                }
+                ...diary,
+                title: diaryData.title,
+                content: diaryData.content,
+              }
               : diary
           )
         );

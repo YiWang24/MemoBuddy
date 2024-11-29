@@ -5,6 +5,7 @@ import Button from "@/components/navigation/Button";
 import DiaryText from "@/components/Dashboard/DiaryText";
 import LockPassword from "@/components/Dashboard/LockPassword";
 import WeatherData from "./WeatherData";
+// import WeatherData from "@/app/(protected)/diary/dashboard/WeatherData";
 const Dashboard = ({
   onBackgroundClick,
   newCheck,

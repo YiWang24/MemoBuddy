@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Button from '@/components/navigation/Button';
-import { location } from '../../../../api/location';
+import { locationApi } from '../../../../api/location';
 import { weatherApi } from "@/api";
 
 
@@ -30,13 +30,17 @@ const WeatherData = () => {
 
     }, [])
     const handleClick = async () => {
-        location.getLocation();
+        locationApi.getLocation();
+        console.log(locationApi.getLocation());
         // console.log("session" + loc)
         // console.log(await );
     }
 
     const fetchUserWeatherInfo = async (lat, lon) => {
+        console.log("I am running")
+        console.log(lat, "I should")
         const response = await weatherApi.getWeather(lat, lon);
+        console.log("I am doubt")
         setWeatherData(response);
         console.log(weatherData.sys)
         console.log(response);
