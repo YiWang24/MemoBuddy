@@ -70,10 +70,10 @@ export default function dashboard() {
           prevList.map((diary) =>
             diary.id === selectedDiaryId
               ? {
-                  ...diary,
-                  title: diaryData.title,
-                  content: diaryData.content,
-                }
+                ...diary,
+                title: diaryData.title,
+                content: diaryData.content,
+              }
               : diary
           )
         );
@@ -141,6 +141,8 @@ export default function dashboard() {
             prevList.map((d) => (d.id === id ? { ...d, locked: false } : d))
           );
           message.success("Diary unlocked successfully");
+        }else{
+          
         }
       } else {
         // Lock diary
@@ -157,9 +159,10 @@ export default function dashboard() {
       setPassword("");
       setIsVisible(false);
     } catch (error) {
-      setIsVisible(false);
-      console.error("Error locking/unlocking diary:", error);
-      message.error("Failed to unlock diary");
+      console.error("Error handling lock/unlock:", error);
+      message.error(
+        diary.locked ? "Failed to unlock diary" : "Failed to lock diary"
+      );
     }
   };
 

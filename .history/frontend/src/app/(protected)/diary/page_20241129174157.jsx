@@ -141,7 +141,7 @@ export default function dashboard() {
             prevList.map((d) => (d.id === id ? { ...d, locked: false } : d))
           );
           message.success("Diary unlocked successfully");
-        }
+        } 
       } else {
         // Lock diary
         response = await diaryApi.lockDiary(id, password);
@@ -157,7 +157,6 @@ export default function dashboard() {
       setPassword("");
       setIsVisible(false);
     } catch (error) {
-      setIsVisible(false);
       console.error("Error locking/unlocking diary:", error);
       message.error("Failed to unlock diary");
     }
