@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Button from '@/components/navigation/Button';
-import { location } from '../../../../api/location';
+
+import { locationApi } from '@/api';
 import { weatherApi } from "@/api";
 
 
@@ -21,16 +22,16 @@ const WeatherData = () => {
             const lon = parsedLoc.lon;
             fetchUserWeatherInfo(lat, lon);
             const response = weatherApi.getWeather(lat, lon);
-            console.log(response + "test")
+            console.log(response)
             console.log(lat, lon)
         }
     }
     useEffect(() => {
         getFromSessionStorage();
-
     }, [])
     const handleClick = async () => {
-        location.getLocation();
+        await locationApi.getLocation();
+        console.log(await locationApi.getLocation());
         // console.log("session" + loc)
         // console.log(await );
     }
@@ -39,7 +40,7 @@ const WeatherData = () => {
         const response = await weatherApi.getWeather(lat, lon);
         setWeatherData(response);
         console.log(weatherData.sys)
-        console.log(response);
+        console.log("is it", response);
     }
     return (
         <div className='flex flex-col gap-2 items-center justify-center'>

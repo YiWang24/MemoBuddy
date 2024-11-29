@@ -4,6 +4,7 @@ import CardDiary from "@/components/Dashboard/CardDiary";
 import Button from "@/components/navigation/Button";
 import DiaryText from "@/components/Dashboard/DiaryText";
 import LockPassword from "@/components/Dashboard/LockPassword";
+import WeatherData from "./WeatherData";
 const Dashboard = ({
   onBackgroundClick,
   newCheck,
@@ -60,17 +61,9 @@ const Dashboard = ({
                 Everything you want is on the other side of fear
               </p>
             </div>
-            <div className="flex flex-col gap-2 items-center justify-center border-2 border-black rounded-lg p-2">
-              <div className=" p-2 rounded-lg">
-                <img
-                  src="https://c.animaapp.com/ldsw5inR/img/image-2@2x.png"
-                  alt="location"
-                  className="h-[50px]"
-                ></img>
-              </div>
-              <div>
-                <Button onClick={getWeather}>GRANT ACCESS</Button>
-              </div>
+            <div className="bg-[#96efff] border-2 border-black rounded-lg p-2">
+              <WeatherData></WeatherData>
+
             </div>
           </div>
           <div className="p-2">
