@@ -21,14 +21,10 @@ const Dashboard = ({ newNote, setNewNote, newCheck, setNewCheck }) => {
     setNewCheck(true);
   };
 
-  useEffect(() => {
+  const fetchDiaries = async () => {
     const authD = sessionStorage.getItem('authState');
-    console.log(authD)
     const parsedAuth = JSON.parse(authD);
-    console.log(parsedAuth)
-    console.log(parsedAuth.user.id)
     const promisedData = diaryApi.getDiaries(parsedAuth.user.id);
-    console.log(promisedData)
 
     promisedData.then((res) => {
       const dataArray = res.data.map(item => ({
@@ -37,16 +33,32 @@ const Dashboard = ({ newNote, setNewNote, newCheck, setNewCheck }) => {
         content: item.content,
         locked: item.locked
       }))
-      console.log(dataArray)
       setUserDiaries(dataArray);
-
-      // console.log(userDiaries)
     })
+
+  }
+
+  useEffect(() => {
+
+    fetchDiaries();
 
   }, [])
 
-  console.log("updated" + userDiaries);
+  /****************************************************** */
 
+  const [isVisible, setIsVisible] = useState(false); // State to toggle textbox visibility
+  const [text, setText] = useState(''); // State to store textbox value
+
+  const handleButtonClick = () => {
+    setIsVisible(!isVisible); // Toggle visibility
+  };
+
+  const handleInputChange = (e) => {
+    setText(e.target.value); // Update text state
+  };
+
+
+  /****************************************************** */
 
   const handleClick = async () => {
     location.getLocation();
@@ -55,23 +67,25 @@ const Dashboard = ({ newNote, setNewNote, newCheck, setNewCheck }) => {
     const parsedLoc = JSON.parse(loc);
     const lat = parsedLoc.lat;
     const lon = parsedLoc.lon;
-    console.log(lat)
     console.log(await weatherApi.getWeather(lat, lon));
   }
 
   const handleSave = async (e) => {
     setNewCheck(false);
+    fetchDiaries();
     e.preventDefault();
 
     try {
       const response = await diaryApi.createDiary({ ...diaryData });
       console.log(response);
+
       if (response.status === 201) {
         alert("Your message has been submitted successfully!");
         setDiaryData({
           title: "",
           content: ""
         })
+
       } else {
         alert("There was an issue submitting your message. Please try again.");
       }
@@ -105,7 +119,7 @@ const Dashboard = ({ newNote, setNewNote, newCheck, setNewCheck }) => {
 
           {
             userDiaries.map((item) => (
-              <CardDiary title={item.title}></CardDiary>
+              <CardDiary title={item.title} diaryId={item.diaryId} key={item.diaryId} handleButtonClick={handleButtonClick}></CardDiary>
             ))
           }
 
@@ -152,6 +166,35 @@ const Dashboard = ({ newNote, setNewNote, newCheck, setNewCheck }) => {
           </div>
         </div>
       </div>
+
+      {/* Conditional rendering of the centered textbox UI */}
+      {isVisible && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          {/* Popup UI */}
+          <div className="bg-white p-6 rounded-lg shadow-lg w-[300px]">
+            <form>
+              <label htmlFor="inputText" className="block text-gray-700 mb-2">
+                Enter Password
+              </label>
+              <input
+                type="text"
+                id="inputText"
+                value={text}
+                onChange={handleInputChange}
+                className="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+
+              {/* Close Button */}
+              <button
+                onClick={handleButtonClick}
+                className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700 w-full"
+              >
+                Close
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
