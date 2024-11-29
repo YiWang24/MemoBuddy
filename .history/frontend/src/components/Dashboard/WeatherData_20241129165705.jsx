@@ -26,18 +26,21 @@ const WeatherData = () => {
     getFromSessionStorage();
   }, []);
   const handleClick = async () => {
-    try {
-      const coordinates = await locationApi.getLocation();
-      const { lat, lon } = coordinates;
+      try {
+        const position = await locationApi.getLocation();
+        // Assuming locationApi.getLocation() returns coordinates
+        const { latitude: lat, longitude: lon } = position.coords;
 
-      // Save to sessionStorage
-      sessionStorage.setItem("user-coordinate", JSON.stringify({ lat, lon }));
-      // Fetch weather data immediately
-      await fetchUserWeatherInfo(lat, lon);
-      setcoord(true);
-    } catch (error) {
-      console.error("Error getting location:", error);
-    }
+        // Save to sessionStorage
+        sessionStorage.setItem("user-coordinate", JSON.stringify({ lat, lon }));
+
+        // Fetch weather data immediately
+        await fetchUserWeatherInfo(lat, lon);
+        setcoord(true);
+      } catch (error) {
+        console.error("Error getting location:", error);
+      }
+    };
   };
 
   const fetchUserWeatherInfo = async (lat, lon) => {

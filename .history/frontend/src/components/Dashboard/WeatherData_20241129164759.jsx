@@ -4,51 +4,56 @@ import { locationApi } from "@/api";
 import { weatherApi } from "@/api";
 
 const WeatherData = () => {
-  const [coord, setcoord] = useState(false);
-  const [weatherData, setWeatherData] = useState(false);
-
-  const getFromSessionStorage = async () => {
-    const localCoordinates = sessionStorage.getItem("user-coordinate");
-    if (!localCoordinates) {
-      setcoord(false);
-    } else {
-      setcoord(true);
-      const parsedLoc = JSON.parse(localCoordinates);
-      const lat = parsedLoc.lat;
-      const lon = parsedLoc.lon;
-      await fetchUserWeatherInfo(lat, lon);
-      const response = weatherApi.getWeather(lat, lon);
-      console.log(response + "test");
-      console.log(lat, lon);
-    }
-  };
-  useEffect(() => {
-    getFromSessionStorage();
-  }, []);
-  const handleClick = async () => {
-    try {
-      const coordinates = await locationApi.getLocation();
-      const { lat, lon } = coordinates;
-
-      // Save to sessionStorage
-      sessionStorage.setItem("user-coordinate", JSON.stringify({ lat, lon }));
-      // Fetch weather data immediately
-      await fetchUserWeatherInfo(lat, lon);
-      setcoord(true);
-    } catch (error) {
-      console.error("Error getting location:", error);
-    }
-  };
-
-  const fetchUserWeatherInfo = async (lat, lon) => {
-    console.log("I am running");
-    console.log(lat, "I should");
-    const response = await weatherApi.getWeather(lat, lon);
-    console.log("I am doubt");
-    setWeatherData(response);
-    console.log(weatherData.sys);
-    console.log(response);
-  };
+    const [coord, setCoord] = useState(false);
+    const [weatherData, setWeatherData] = useState(null);
+  
+    const fetchUserWeatherInfo = async (lat, lon) => {
+      try {
+        const response = await weatherApi.getWeather(lat, lon);
+        setWeatherData(response);
+        setCoord(true);
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+        setCoord(false);
+      }
+    };
+  
+    const getFromSessionStorage = async () => {
+      const localCoordinates = sessionStorage.getItem("user-coordinate");
+      if (localCoordinates) {
+        try {
+          const parsedLoc = JSON.parse(localCoordinates);
+          await fetchUserWeatherInfo(parsedLoc.lat, parsedLoc.lon);
+        } catch (error) {
+          console.error("Error parsing coordinates:", error);
+          setCoord(false);
+        }
+      }
+    };
+  
+    useEffect(() => {
+      getFromSessionStorage();
+    }, []);
+  
+    const handleClick = async () => {
+      try {
+        // Modify locationApi.getLocation to return coordinates
+        const coordinates = await locationApi.getLocation();
+        
+        // Save coordinates to session storage
+        sessionStorage.setItem("user-coordinate", JSON.stringify({
+          lat: coordinates.latitude,
+          lon: coordinates.longitude
+        }));
+  
+        // Fetch weather data immediately after getting location
+        await fetchUserWeatherInfo(coordinates.latitude, coordinates.longitude);
+      } catch (error) {
+        console.error("Error getting location:", error);
+        setCoord(false);
+      }
+    };
+  
   return (
     <div className="flex flex-col gap-2 items-center justify-center">
       {coord ? (

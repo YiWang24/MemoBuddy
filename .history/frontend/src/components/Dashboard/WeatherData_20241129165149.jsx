@@ -5,21 +5,18 @@ import { weatherApi } from "@/api";
 
 const WeatherData = () => {
   const [coord, setcoord] = useState(false);
-  const [weatherData, setWeatherData] = useState(false);
+  const [weatherData, setWeatherData] = useState(null);
 
   const getFromSessionStorage = async () => {
     const localCoordinates = sessionStorage.getItem("user-coordinate");
     if (!localCoordinates) {
       setcoord(false);
     } else {
-      setcoord(true);
       const parsedLoc = JSON.parse(localCoordinates);
       const lat = parsedLoc.lat;
       const lon = parsedLoc.lon;
+      setcoord(true);
       await fetchUserWeatherInfo(lat, lon);
-      const response = weatherApi.getWeather(lat, lon);
-      console.log(response + "test");
-      console.log(lat, lon);
     }
   };
   useEffect(() => {
@@ -27,27 +24,25 @@ const WeatherData = () => {
   }, []);
   const handleClick = async () => {
     try {
-      const coordinates = await locationApi.getLocation();
-      const { lat, lon } = coordinates;
+      const location = await locationApi.getLocation();
+      if (location) {
+        const { lat, lon } = location;
 
-      // Save to sessionStorage
-      sessionStorage.setItem("user-coordinate", JSON.stringify({ lat, lon }));
-      // Fetch weather data immediately
-      await fetchUserWeatherInfo(lat, lon);
-      setcoord(true);
+        sessionStorage.setItem("user-coordinate", JSON.stringify({ lat, lon }));
+        setCoord(true);
+        await fetchUserWeatherInfo(lat, lon);
+      }
     } catch (error) {
-      console.error("Error getting location:", error);
+      console.error("Failed to get location:", error);
     }
   };
-
   const fetchUserWeatherInfo = async (lat, lon) => {
-    console.log("I am running");
-    console.log(lat, "I should");
-    const response = await weatherApi.getWeather(lat, lon);
-    console.log("I am doubt");
-    setWeatherData(response);
-    console.log(weatherData.sys);
-    console.log(response);
+    try {
+      const response = await weatherApi.getWeather(lat, lon);
+      setWeatherData(response);
+    } catch (error) {
+      console.error("Failed to fetch weather data:", error);
+    }
   };
   return (
     <div className="flex flex-col gap-2 items-center justify-center">

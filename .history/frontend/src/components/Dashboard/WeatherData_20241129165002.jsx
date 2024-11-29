@@ -5,17 +5,17 @@ import { weatherApi } from "@/api";
 
 const WeatherData = () => {
   const [coord, setcoord] = useState(false);
-  const [weatherData, setWeatherData] = useState(false);
+  const [weatherData, setWeatherData] = useState(null);
 
   const getFromSessionStorage = async () => {
     const localCoordinates = sessionStorage.getItem("user-coordinate");
     if (!localCoordinates) {
       setcoord(false);
     } else {
-      setcoord(true);
       const parsedLoc = JSON.parse(localCoordinates);
       const lat = parsedLoc.lat;
       const lon = parsedLoc.lon;
+      setcoord(true);
       await fetchUserWeatherInfo(lat, lon);
       const response = weatherApi.getWeather(lat, lon);
       console.log(response + "test");
@@ -26,18 +26,7 @@ const WeatherData = () => {
     getFromSessionStorage();
   }, []);
   const handleClick = async () => {
-    try {
-      const coordinates = await locationApi.getLocation();
-      const { lat, lon } = coordinates;
-
-      // Save to sessionStorage
-      sessionStorage.setItem("user-coordinate", JSON.stringify({ lat, lon }));
-      // Fetch weather data immediately
-      await fetchUserWeatherInfo(lat, lon);
-      setcoord(true);
-    } catch (error) {
-      console.error("Error getting location:", error);
-    }
+    await locationApi.getLocation();
   };
 
   const fetchUserWeatherInfo = async (lat, lon) => {

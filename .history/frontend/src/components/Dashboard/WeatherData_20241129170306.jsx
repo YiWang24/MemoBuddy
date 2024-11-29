@@ -27,11 +27,17 @@ const WeatherData = () => {
   }, []);
   const handleClick = async () => {
     try {
-      const coordinates = await locationApi.getLocation();
-      const { lat, lon } = coordinates;
+      await locationApi.getLocation();
+      const localCoordinates = sessionStorage.getItem("user-coordinate");
+      if (!localCoordinates) {
+        setcoord(false);
+      } else {
+        setcoord(true);
+        const parsedLoc = JSON.parse(localCoordinates);
+        const lat = parsedLoc.lat;
+        const lon = parsedLoc.lon;
+      }
 
-      // Save to sessionStorage
-      sessionStorage.setItem("user-coordinate", JSON.stringify({ lat, lon }));
       // Fetch weather data immediately
       await fetchUserWeatherInfo(lat, lon);
       setcoord(true);
