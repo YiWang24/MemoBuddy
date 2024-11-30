@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import "./style.css";
 import MeetOurTeam from "@/components/about/MeetOurTeam";
 import AboutBanner from "@/components/about/AboutBanner";
@@ -8,10 +7,6 @@ import FeedbackForm from "@/components/about/FeedbackForm";
 export default function page() {
   return (
     <main className="about-page">
-
-      {/* <section className="hero-section">
-        <h2 className="hero-title">About Us</h2>
-      </section> */}
 
       <section className="welcome-section">
         <h2 className="welcome-title">Welcome to Our Secure Diary</h2>
@@ -85,4 +80,3 @@ export default function page() {
 }
 
 
-console.log("hello")

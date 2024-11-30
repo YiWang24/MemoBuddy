@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Button from '../navigation/Button';
+import React, { useState } from "react";
+import Button from "../navigation/Button";
 
 function DiaryText({ value, setValue, handleSave }) {
     // const [value, setValue] = useState('');
@@ -23,7 +23,9 @@ function DiaryText({ value, setValue, handleSave }) {
                 <Button className="text-right" onClick={handleSave}>Save</Button>
             </div>
         </div>
-    );
+      </form>
+    </div>
+  );
 }
 
 export default DiaryText;
