@@ -4,21 +4,24 @@ const MeetOurTeam = () => {
     const teamMembers = [
         {
             name: 'Komalpreet Singh',
-            title: 'role',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia ex sed velit vehicula, at fermentum augue sollicitudin. Integer cursus, nunc sed feugiat vestibulum, justo lacus hendrerit ante, eget euismod lorem mi at nulla. Curabitur pretium risus id nunc ullamcorper, a pretium nunc suscipit. Nulla facilisi. Sed vehicula sapien vitae risus egestas, sit amet luctus metus iaculis. Suspendisse potenti',
-            imageUrl: 'https://via.placeholder.com/150',
+            title: 'Full Stack Developer',
+            description: 'A skilled developer with expertise in both frontend and backend technologies. Komalpreet is passionate about creating secure and efficient web applications. Built the core architecture for the diary platform, ensuring a seamless connection between the frontend interface and the backend systems',
+            imageUrl: 'https://files.oaiusercontent.com/file-6yQVrvWhyHo6LP7Wpp5wxu?se=2024-11-30T23%3A42%3A01Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D2d61aab7-85fc-4c8a-b2e8-f123c2abd228.webp&sig=qTkohRtbJEN4EFS6Wq%2BBDvnv%2Bs8YYIgqIoAKejdNoi8%3D',
+            funFact: 'Enjoys solving complex coding challenges and contributing to open-source projects.'
         },
         {
             name: 'Yi Wang',
-            title: 'role',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia ex sed velit vehicula, at fermentum augue sollicitudin. Integer cursus, nunc sed feugiat vestibulum, justo lacus hendrerit ante, eget euismod lorem mi at nulla. Curabitur pretium risus id nunc ullamcorper, a pretium nunc suscipit. Nulla facilisi. Sed vehicula sapien vitae risus egestas, sit amet luctus metus iaculis. Suspendisse potenti',
-            imageUrl: 'https://via.placeholder.com/150',
+            title: 'Backend Developer',
+            description: 'Backend expert specializing in database management and server-side logic. Yi has a keen interest in building systems that prioritize privacy and security. Designed and implemented the secure storage and encryption mechanisms that protect users data on the diary platform by passwords.',
+            imageUrl: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1f802150-66ea-43cc-8f5b-a0ceb24350ea/dggoozf-ddd62ef2-5b98-4947-a335-37e87485dafa.png/v1/fill/w_1184,h_675,q_70,strp/itachi_by_elffyie_dggoozf-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzMwIiwicGF0aCI6IlwvZlwvMWY4MDIxNTAtNjZlYS00M2NjLThmNWItYTBjZWIyNDM1MGVhXC9kZ2dvb3pmLWRkZDYyZWYyLTViOTgtNDk0Ny1hMzM1LTM3ZTg3NDg1ZGFmYS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.bHNHl6_Z9rUJaqLO3IDq9xQHdkY8nAT0KViensoyrdM',
+            funFact: 'Loves exploring new database technologies and brewing the perfect cup of coffee.'
         },
         {
             name: 'Fares',
-            title: 'role',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia ex sed velit vehicula, at fermentum augue sollicitudin. Integer cursus, nunc sed feugiat vestibulum, justo lacus hendrerit ante, eget euismod lorem mi at nulla. Curabitur pretium risus id nunc ullamcorper, a pretium nunc suscipit. Nulla facilisi. Sed vehicula sapien vitae risus egestas, sit amet luctus metus iaculis. Suspendisse potenti',
-            imageUrl: 'https://via.placeholder.com/150',
+            title: 'UI/UX Designe & Content Creator',
+            description: 'A creative designer dedicated to crafting intuitive user interfaces and meaningful content. Fares combines a passion for design with a talent for storytelling to enhance user experiences.Designed the user-friendly interface of the diary platform and created engaging content that communicates its features and benefits.',
+            imageUrl: 'https://i.pinimg.com/474x/f9/d3/07/f9d307dd8f7851f84425d1181751933c.jpg',
+            funFact: 'An avid traveler who finds design inspiration in cultural experiences.'
         },
     ];
 
@@ -33,6 +36,7 @@ const MeetOurTeam = () => {
                         title={member.title}
                         description={member.description}
                         imageUrl={member.imageUrl}
+                        funFact={member.funFact}
                     />
                 ))}
             </div>
