@@ -24,14 +24,13 @@ const Navbar = ({ isAuthenticated }) => {
         { href: "/about", label: "About" },
         { href: "/contact", label: "Contact" },
       ];
-  const logo = isAuthenticated ? { href: "/diary" } : { href: "/" };
-
+  useEffect(console.log(navLinks[0].href);)
   return (
     <div className="bg-white text-black px-6 py-4 border-b-2 border-black">
       <nav className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <div>
-          <a href={logo.href}>
+          <a href={navLinks[0].href}>
             <img
               src={"/logo.svg"}
               alt="memobuddy"

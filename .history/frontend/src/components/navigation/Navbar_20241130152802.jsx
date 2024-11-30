@@ -31,7 +31,7 @@ const Navbar = ({ isAuthenticated }) => {
       <nav className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <div>
-          <a href={logo.href}>
+          <a href={logo}>
             <img
               src={"/logo.svg"}
               alt="memobuddy"

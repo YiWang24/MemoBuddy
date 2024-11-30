@@ -14,6 +14,17 @@ const Navbar = ({ isAuthenticated }) => {
     message.success("Logged out successful");
     router.push("/login");
   };
+  const [userId, setUserId] = useState(null);
+  const { user } = useAuth(); // Get user from auth context
+
+  useEffect(() => {
+    // Set userId when user auth state changes
+    if (user) {
+      setUserId(user.id);
+    } else {
+      setUserId(null);
+    }
+  }, [user]);
   const navLinks = isAuthenticated
     ? [
         { href: "/diary", label: "Diary" },
@@ -24,14 +35,13 @@ const Navbar = ({ isAuthenticated }) => {
         { href: "/about", label: "About" },
         { href: "/contact", label: "Contact" },
       ];
-  const logo = isAuthenticated ? { href: "/diary" } : { href: "/" };
 
   return (
     <div className="bg-white text-black px-6 py-4 border-b-2 border-black">
       <nav className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <div>
-          <a href={logo.href}>
+          <a href={userId ? "diary" : "/"}>
             <img
               src={"/logo.svg"}
               alt="memobuddy"

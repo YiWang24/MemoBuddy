@@ -1,6 +1,6 @@
 "use client";
 import Button from "./Button";
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { fetchLogout } from "@/lib/features/auth/authSlice";
 import { useRouter } from "next/navigation";
@@ -14,24 +14,29 @@ const Navbar = ({ isAuthenticated }) => {
     message.success("Logged out successful");
     router.push("/login");
   };
+  const auth = sessionStorage.getItem("authState");
+  if (auth !== null) {
+    const userId = JSON.parse(auth).user.id;
+  } else {
+    const userId = null;
+  }F
   const navLinks = isAuthenticated
     ? [
-        { href: "/diary", label: "Diary" },
-        { href: "/contact", label: "Contact" },
-      ]
+      { href: "/diary", label: "Diary" },
+      { href: "/contact", label: "Contact" },
+    ]
     : [
-        { href: "/", label: "Home" },
-        { href: "/about", label: "About" },
-        { href: "/contact", label: "Contact" },
-      ];
-  const logo = isAuthenticated ? { href: "/diary" } : { href: "/" };
+      { href: "/", label: "Home" },
+      { href: "/about", label: "About" },
+      { href: "/contact", label: "Contact" },
+    ];
 
   return (
     <div className="bg-white text-black px-6 py-4 border-b-2 border-black">
       <nav className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <div>
-          <a href={logo.href}>
+          <a href="/">
             <img
               src={"/logo.svg"}
               alt="memobuddy"

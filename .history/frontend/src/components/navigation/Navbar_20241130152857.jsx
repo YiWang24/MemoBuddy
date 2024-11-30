@@ -32,6 +32,7 @@ const Navbar = ({ isAuthenticated }) => {
         {/* Logo */}
         <div>
           <a href={logo.href}>
+            logo.href
             <img
               src={"/logo.svg"}
               alt="memobuddy"

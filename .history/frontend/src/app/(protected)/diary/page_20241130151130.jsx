@@ -19,7 +19,8 @@ export default function dashboard() {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const auth = sessionStorage.getItem("authState");
-  const userId = JSON.parse(auth).user.id || null;
+  if(auth)
+  const userId = JSON.parse(auth).user.id;
 
   // get Diary data
   const fetchDiaries = async () => {

@@ -24,14 +24,15 @@ const Navbar = ({ isAuthenticated }) => {
         { href: "/about", label: "About" },
         { href: "/contact", label: "Contact" },
       ];
-  const logo = isAuthenticated ? { href: "/diary" } : { href: "/" };
+  const logo = isAuthenticated ? "/diary" : "/";
 
   return (
     <div className="bg-white text-black px-6 py-4 border-b-2 border-black">
       <nav className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <div>
-          <a href={logo.href}>
+          <a href={logo}>
+            
             <img
               src={"/logo.svg"}
               alt="memobuddy"
