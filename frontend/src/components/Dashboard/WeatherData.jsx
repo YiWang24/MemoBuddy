@@ -2,58 +2,68 @@ import React, { useEffect, useState } from "react";
 import Button from "@/components/navigation/Button";
 import { locationApi } from "@/api";
 import { weatherApi } from "@/api";
+import Spinner from "./Spinner";
 
 const WeatherData = () => {
-  const [coord, setcoord] = useState(false);
-  const [weatherData, setWeatherData] = useState(false);
+  const [coord, setCoord] = useState(false); // Whether coordinates are available
+  const [weatherData, setWeatherData] = useState({}); // Weather data state
+  const [loader, setLoader] = useState(false); // Loader state
 
+  // Get coordinates from sessionStorage when the component mounts
   const getFromSessionStorage = async () => {
     const localCoordinates = sessionStorage.getItem("user-coordinate");
     if (!localCoordinates) {
-      setcoord(false);
+      setCoord(false);
     } else {
-      setcoord(true);
       const parsedLoc = JSON.parse(localCoordinates);
       const lat = parsedLoc.lat;
       const lon = parsedLoc.lon;
-      await fetchUserWeatherInfo(lat, lon);
-      const response = weatherApi.getWeather(lat, lon);
-      console.log(response + "test");
-      console.log(lat, lon);
+      await fetchUserWeatherInfo(lat, lon); // Fetch weather info if coordinates are available
     }
   };
+
   useEffect(() => {
     getFromSessionStorage();
   }, []);
+
+  // Handle click to get the user's location and fetch weather data
   const handleClick = async () => {
+    setLoader(true); // Start loading as soon as the button is clicked
     try {
       const coordinates = await locationApi.getLocation();
       const { lat, lon } = coordinates;
 
       // Save to sessionStorage
       sessionStorage.setItem("user-coordinate", JSON.stringify({ lat, lon }));
-      // Fetch weather data immediately
+
+      // Fetch weather data immediately after coordinates are retrieved
       await fetchUserWeatherInfo(lat, lon);
-      setcoord(true);
     } catch (error) {
       console.error("Error getting location:", error);
+      setLoader(false); // Hide loader if there was an error getting location
     }
   };
 
+  // Fetch weather information for the user's coordinates
   const fetchUserWeatherInfo = async (lat, lon) => {
-    console.log("I am running");
-    console.log(lat, "I should");
-    const response = await weatherApi.getWeather(lat, lon);
-    console.log("I am doubt");
-    setWeatherData(response);
-    console.log(weatherData.sys);
-    console.log(response);
+    try {
+      const response = await weatherApi.getWeather(lat, lon);
+      setWeatherData(response); // Set the fetched weather data
+      setCoord(true); // Set coord to true to display weather data
+      setLoader(false); // Hide loader once weather data is available
+    } catch (e) {
+      console.log(e);
+      setLoader(false); // Hide loader in case of an error fetching weather data
+    }
   };
+
   return (
     <div className="flex flex-col gap-2 items-center justify-center">
-      {coord ? (
+      {loader ? (
+        <div><Spinner></Spinner></div> // Show loading if loader is true
+      ) : coord ? (
         <div className="w-full grid grid-cols-3 gap-4 p-2 text-center">
-          {/* col1 */}
+          {/* Weather data display */}
           <div className="flex flex-col">
             <div className="flex justify-center">
               <img
@@ -80,11 +90,7 @@ const WeatherData = () => {
 
           <div className="flex flex-col">
             <div className="flex justify-center">
-              <img
-                className="h-[20px] w-[25px]"
-                src="/humidity.png"
-                alt="humidity"
-              />
+              <img className="h-[20px] w-[25px]" src="/humidity.png" alt="humidity" />
             </div>
             <p className="text-md font-semibold">Humidity</p>
             <div className="font-bold text-2xl">
