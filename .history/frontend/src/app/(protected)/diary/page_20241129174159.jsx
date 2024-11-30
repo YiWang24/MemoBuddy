@@ -8,7 +8,6 @@ import Dashboard from "../../../components/Dashboard/Dashboard";
 import { diaryApi, weatherApi, locationApi } from "@/api";
 import { message } from "antd";
 
-
 export default function dashboard() {
   const [newCheck, setNewCheck] = useState(false);
   const [diaryData, setDiaryData] = useState({ title: "", content: "" });
@@ -16,6 +15,7 @@ export default function dashboard() {
   const [diaryList, setDiaryList] = useState([]);
   const [selectedDiaryId, setSelectedDiaryId] = useState({ id: null });
   const [password, setPassword] = useState("");
+  const [weatherData, setWeatherData] = useState({});
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const auth = sessionStorage.getItem("authState");
@@ -164,24 +164,24 @@ export default function dashboard() {
   };
 
   // handle weather
-  // const handleWeather = async () => {
-  //   try {
-  //     await locationApi.getLocation();
+  const handleWeather = async () => {
+    try {
+      await locationApi.getLocation();
 
-  //     // Retrieve coordinates from sessionStorage
-  //     const location = JSON.parse(sessionStorage.getItem("user-coordinate"));
-  //     if (!location) {
-  //       throw new Error("Failed to retrieve user coordinates");
-  //     }
+      // Retrieve coordinates from sessionStorage
+      const location = JSON.parse(sessionStorage.getItem("user-coordinate"));
+      if (!location) {
+        throw new Error("Failed to retrieve user coordinates");
+      }
 
-  //     // Fetch weather data
-  //     const weather = await weatherApi.getWeather(location);
-  //     console.log(weather);
-  //     // setWeatherData(weather);
-  //   } catch (error) {
-  //     console.error("Error fetching weather data:", error);
-  //   }
-  // };
+      // Fetch weather data
+      const weather = await weatherApi.getWeather(location);
+      console.log(weather);
+      // setWeatherData(weather);
+    } catch (error) {
+      console.error("Error fetching weather data:", error);
+    }
+  };
 
   useEffect(() => {
     fetchDiaries();
@@ -204,7 +204,7 @@ export default function dashboard() {
         newCheck={newCheck}
         setNewCheck={setNewCheck}
         diaryList={diaryList}
-        // getWeather={handleWeather}
+        getWeather={handleWeather}
         diaryData={diaryData}
         setDiaryData={setDiaryData}
         addDiary={handleAddDiary}
