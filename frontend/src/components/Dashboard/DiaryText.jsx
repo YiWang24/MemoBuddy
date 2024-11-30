@@ -1,47 +1,27 @@
 import React, { useState } from 'react';
 import Button from '../navigation/Button';
 
-function DiaryText({ diaryData, setDiaryData, handleSave }) {
+function DiaryText({ value, setValue, handleSave }) {
     // const [value, setValue] = useState('');
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setDiaryData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
+        setValue(e.target.value);
     };
-    return (
-        <div className="p-4 w-full h-full ">
-            <form className='flex flex-col gap-2'
-                onSubmit={handleSave}>
-                <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    value={diaryData.title}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Diary title"
-                />
-                <textarea
-                    id="content"
-                    name="content"
-                    value={diaryData.content}
-                    onChange={handleChange}
-                    className="block w-full h-[350px] px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
-                    placeholder="Type your message here..."
-                ></textarea>
 
-                <div className='flex justify-end'>
-                    <button
-                        type="submit"
-                        className="bg-black text-white py-2 px-4 rounded-lg hover:bg-white hover:text-black border-2 border-black"
-                    >
-                        Submit
-                    </button>
-                </div>
-            </form>
+    return (
+        <div className="p-4 w-full h-full relative flex flex-col gap-2">
+            <textarea
+                id="message"
+                name="message"
+                value={value}
+                onChange={handleChange}
+                rows="4"
+                className="mt-2 p-3 block w-full h-[82%] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Type your message here..."
+            />
+            <div className='flex justify-end'>
+                <Button className="text-right" onClick={handleSave}>Save</Button>
+            </div>
         </div>
     );
 }
