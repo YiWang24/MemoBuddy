@@ -13,7 +13,7 @@ export default function dashboard() {
   const [diaryData, setDiaryData] = useState({ title: "", content: "" });
   const [isVisible, setIsVisible] = useState(false);
   const [diaryList, setDiaryList] = useState([]);
-  const [selectedDiaryId, setSelectedDiaryId] = useState(null);
+  const [selectedDiaryId, setSelectedDiaryId] = useState(NonNullable);
   const [password, setPassword] = useState("");
   const [weatherData, setWeatherData] = useState({});
   const dispatch = useDispatch();
