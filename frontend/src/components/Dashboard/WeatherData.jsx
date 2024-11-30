@@ -6,7 +6,8 @@ import { weatherApi } from "@/api";
 
 const WeatherData = () => {
     const [coord, setcoord] = useState(false);
-    const [weatherData, setWeatherData] = useState(false);
+    const [weatherD, setWeatherD] = useState({});
+    // const []
 
 
     const getFromSessionStorage = async () => {
@@ -20,31 +21,42 @@ const WeatherData = () => {
             const lat = parsedLoc.lat;
             const lon = parsedLoc.lon;
             fetchUserWeatherInfo(lat, lon);
-            const response = weatherApi.getWeather(lat, lon);
-            console.log(response + "test")
-            console.log(lat, lon)
+
         }
     }
-    useEffect(() => {
-        getFromSessionStorage();
 
+    useEffect(() => {
+        console.log("rerender");
+        // getFromSessionStorage()
+        locationApi.getLocation();
+        if (weatherD.name !== undefined) {
+            getFromSessionStorage();
+        }
+        console.log("again render");
     }, [])
     const handleClick = async () => {
-        locationApi.getLocation();
+        await locationApi.getLocation();
+        // setcoord(true);
         console.log(locationApi.getLocation());
-        // console.log("session" + loc)
+
+        await getFromSessionStorage();
+
+        console.log("tes11t", weatherD);
+
+        // setcoord(true)
+        // console.log("session" + loc);
         // console.log(await );
     }
+    console.log(weatherD.name)
 
     const fetchUserWeatherInfo = async (lat, lon) => {
-        console.log("I am running")
-        console.log(lat, "I should")
+
         const response = await weatherApi.getWeather(lat, lon);
-        console.log("I am doubt")
-        setWeatherData(response);
-        console.log(weatherData.sys)
-        console.log(response);
+        console.log("Komal" + response)
+        setcoord(true);
+        setWeatherD(response);
     }
+
     return (
         <div className='flex flex-col gap-2 items-center justify-center'>
             {
@@ -54,14 +66,14 @@ const WeatherData = () => {
                         <div className='flex flex-col'>
                             <div className='flex justify-center'>
                                 <img className="h-[20px] w-[25px]"
-                                    src={`https://flagcdn.com/144x108/${weatherData?.sys?.country.toLowerCase()}.png`}
-                                    alt={`Flag of ${weatherData?.sys?.country}`}
+                                    src={`https://flagcdn.com/144x108/${weatherD?.sys?.country.toLowerCase()}.png`}
+                                    alt={`Flag of ${weatherD?.sys?.country}`}
                                 />
                             </div>
-                            <p className='text-md font-semibold'>{weatherData.name}
+                            <p className='text-md font-semibold'>{weatherD.name}
                             </p>
                             <div className='font-bold text-2xl'>
-                                <h2>{weatherData?.main?.temp} °C</h2>
+                                <h2>{weatherD?.main?.temp} °C</h2>
                             </div>
                         </div>
 
@@ -76,7 +88,7 @@ const WeatherData = () => {
                             <p className='text-md font-semibold'>Windspeed
                             </p>
                             <div className='font-bold text-2xl'>
-                                <h2>{weatherData?.wind?.speed} m/s</h2>
+                                <h2>{weatherD?.wind?.speed} m/s</h2>
                             </div>
                         </div>
 
@@ -90,7 +102,7 @@ const WeatherData = () => {
                             <p className='text-md font-semibold'>Humidity
                             </p>
                             <div className='font-bold text-2xl'>
-                                <h2>{weatherData?.main?.humidity} %</h2>
+                                <h2>{weatherD?.main?.humidity} %</h2>
                             </div>
                         </div>
 

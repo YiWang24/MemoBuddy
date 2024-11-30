@@ -11,7 +11,7 @@ const Dashboard = ({
   newCheck,
   setNewCheck,
   diaryList,
-  getWeather,
+
   addDiary,
   diaryData,
   setDiaryData,
