@@ -1,19 +1,23 @@
 const axios = require("axios");
 const config = require("../config/config");
 
+
 // weatherService.js
 export const buildWeatherUrl = (lat, lon, apiKey) => {
   if (!lat || !lon || !apiKey) {
-    throw new Error("Missing required parameters");
+    throw new Error('Missing required parameters');
   }
   return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 };
 
 // Get weather data by coordinates
 async function getWeatherByCoords(lat, lon, next) {
-  const url = buildWeatherUrl(lat, lon, config.openWeatherMap.apiKey);
+  const url = 
+  const apiKey = config.openWeatherMap.apiKey;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  console.log(url)
   try {
-    console.log("waether service", lat, lon);
+    console.log("waether service",lat,lon)
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
@@ -21,4 +25,4 @@ async function getWeatherByCoords(lat, lon, next) {
   }
 }
 
-module.exports = { buildWeatherUrl, getWeatherByCoords };
+module.exports = getWeatherByCoords;

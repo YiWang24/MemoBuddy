@@ -1,0 +1,30 @@
+import { describe, it, expect, vi } from "vitest";
+import errorMiddleware from "../middleware/errorMiddleware";
+
+describe("errorMiddleware", () => {
+  let mockRequest;
+  let mockResponse;
+  let mockNext;
+
+  beforeEach(() => {
+    mockRequest = {};
+    mockResponse = {
+      status: vi.fn().mockReturnThis(),
+      json: vi.fn(),
+    };
+    mockNext = vi.fn();
+  });
+
+  it("should handle standard Error", () => {
+    const error = new Error("Test error");
+
+    errorMiddleware(error, mockRequest, mockResponse, mockNext);
+
+    expect(mockResponse.status).toHaveBeenCalledWith(500);
+    expect(mockResponse.json).toHaveBeenCalledWith({
+      success: false, // Add success flag
+      message: "Test error",
+      stack: expect.any(String)
+    });
+  });
+});

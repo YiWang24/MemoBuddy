@@ -254,4 +254,4 @@ const authController = {
   },
 };
 
-module.exports = { checkUserExists, authController };
+module.exports = {checkUserExists，authController};

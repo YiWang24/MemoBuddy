@@ -5,5 +5,6 @@ export default defineConfig({
     globals: true, // Allow using globals like describe, it, etc.
     environment: "node", // Use Node environment for backend testing
     include: ["tests/**/*.test.js"], // Path to your test files
+    mockReset
   },
 });
