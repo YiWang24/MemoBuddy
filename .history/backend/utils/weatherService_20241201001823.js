@@ -11,8 +11,8 @@ const buildWeatherUrl = (lat, lon, apiKey) => {
 
 // Get weather data by coordinates
 async function getWeatherByCoords(lat, lon, next) {
+  apiKey = config.openWeatherMap.apiKey;
   const url = buildWeatherUrl(lat, lon, config.openWeatherMap.apiKey);
-  console.log("waether service", url);
   try {
     console.log("waether service", lat, lon);
     const response = await axios.get(url);
