@@ -70,10 +70,10 @@ export default function dashboard() {
           prevList.map((diary) =>
             diary.id === selectedDiaryId
               ? {
-                  ...diary,
-                  title: diaryData.title,
-                  content: diaryData.content,
-                }
+                ...diary,
+                title: diaryData.title,
+                content: diaryData.content,
+              }
               : diary
           )
         );
@@ -186,16 +186,6 @@ export default function dashboard() {
   useEffect(() => {
     fetchDiaries();
   }, []);
-
-  // useEffect(() => {
-  //   const params = {
-  //     googleId: searchParams.get("googleId"),
-  //     email: searchParams.get("email"),
-  //   };
-  //   if (params.googleId && params.email) {
-  //     dispatch(fetchCheckUser(params));
-  //   }
-  // }, [searchParams]);
 
   return (
     <>
