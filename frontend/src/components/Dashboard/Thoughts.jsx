@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 
 const Thoughts = () => {
-    // Define an array with 100 thoughts
+    // Define an array with thoughts
     const [thoughtNew, setThoughtNew] = useState()
     const thoughts = [
         "Be yourself; everyone else is already taken",
@@ -28,11 +28,8 @@ const Thoughts = () => {
 
     useEffect(() => {
         setThoughtNew(getRandomThought(thoughts))
-        // console.log("Random Thought:", getRandomThought(thoughts));
 
     }, [])
-    console.log(thoughtNew)
-    // Test the function
     return (
         <div>
             {thoughtNew}

@@ -4,10 +4,12 @@ const TextBoxUI = () => {
     const [isVisible, setIsVisible] = useState(false); // State to toggle textbox visibility
     const [text, setText] = useState(''); // State to store textbox value
 
+    //handles visibility for textbox
     const handleButtonClick = () => {
         setIsVisible(!isVisible); // Toggle visibility
     };
 
+    //handles text value
     const handleInputChange = (e) => {
         setText(e.target.value); // Update text state
     };

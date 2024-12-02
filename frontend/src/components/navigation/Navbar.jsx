@@ -10,20 +10,20 @@ const Navbar = ({ isAuthenticated }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const handleLogout = async () => {
-    await dispatch(fetchLogout());
+    dispatch(fetchLogout());
     message.success("Logged out successful");
     router.push("/login");
   };
   const navLinks = isAuthenticated
     ? [
-        { href: "/diary", label: "Diary" },
-        { href: "/contact", label: "Contact" },
-      ]
+      { href: "/diary", label: "Diary" },
+      { href: "/contact", label: "Contact" },
+    ]
     : [
-        { href: "/", label: "Home" },
-        { href: "/about", label: "About" },
-        { href: "/contact", label: "Contact" },
-      ];
+      { href: "/", label: "Home" },
+      { href: "/about", label: "About" },
+      { href: "/contact", label: "Contact" },
+    ];
   const logo = isAuthenticated ? { href: "/diary" } : { href: "/" };
 
   return (

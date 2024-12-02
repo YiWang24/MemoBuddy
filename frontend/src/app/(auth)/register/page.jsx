@@ -18,7 +18,7 @@ export default function Login() {
   const handleSubmit = async (values) => {
     try {
       await dispatch(fetchRegister(values));
-      router.push("/diary");
+      router.push("/login");
       message.success("Register successful");
     } catch (error) {
       message.error("Register failed");

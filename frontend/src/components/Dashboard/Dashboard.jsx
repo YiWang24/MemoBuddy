@@ -26,6 +26,7 @@ const Dashboard = ({
 }) => {
   const [selectedLockId, setSelectedLockId] = useState(null);
 
+  //handle lock icon and setting selected diary to lock
   const handleLockShow = (e, id) => {
     e.stopPropagation();
     setSelectedLockId(id);
@@ -35,7 +36,6 @@ const Dashboard = ({
   return (
     <div onClick={onBackgroundClick}>
       <div className="grid grid-cols-[1fr_3fr] h-[90vh] gap-4 p-6 overflow-auto">
-        {/* notes */}
         <div className="border-2 border-black rounded-lg p-2 flex flex-col gap-2">
           {diaryList.map((item) => (
             <CardDiary
