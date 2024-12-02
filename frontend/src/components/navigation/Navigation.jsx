@@ -1,5 +1,5 @@
 "use client";
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 

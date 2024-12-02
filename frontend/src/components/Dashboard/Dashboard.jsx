@@ -60,6 +60,7 @@ const Dashboard = ({
                 Today's thought
               </h2>
               <div className="text-center font-md mb-4">
+
                 <Thoughts></Thoughts>
               </div>
             </div>

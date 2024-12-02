@@ -6,7 +6,7 @@ const MeetOurTeam = () => {
             name: 'Komalpreet Singh',
             title: 'Full Stack Developer',
             description: 'A skilled developer with expertise in both frontend and backend technologies. Komalpreet is passionate about creating secure and efficient web applications. Built the core architecture for the diary platform, ensuring a seamless connection between the frontend interface and the backend systems',
-            imageUrl: 'https://files.oaiusercontent.com/file-6yQVrvWhyHo6LP7Wpp5wxu?se=2024-11-30T23%3A42%3A01Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D2d61aab7-85fc-4c8a-b2e8-f123c2abd228.webp&sig=qTkohRtbJEN4EFS6Wq%2BBDvnv%2Bs8YYIgqIoAKejdNoi8%3D',
+            imageUrl: 'Komal.png',
             funFact: 'Enjoys solving complex coding challenges and contributing to open-source projects.'
         },
         {

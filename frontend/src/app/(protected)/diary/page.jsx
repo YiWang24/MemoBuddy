@@ -21,7 +21,7 @@ export default function dashboard() {
   const auth = sessionStorage.getItem("authState");
   const userId = JSON.parse(auth).user.id || null;
 
-  // get Diary data
+  // get Diary data from database
   const fetchDiaries = async () => {
     try {
       const diaries = await diaryApi.getDiaries(userId);
@@ -57,6 +57,7 @@ export default function dashboard() {
     }
   };
 
+  //adding new diary or editing current diary content
   const handleAddDiary = async (e) => {
     e.preventDefault();
     setNewCheck(false);
@@ -109,6 +110,7 @@ export default function dashboard() {
     }
   };
 
+  //getting a particular diary by clicking on a diary entry
   const handleGetDiary = async (id) => {
     try {
       const diary = await diaryApi.getDiaryById(id.toString());
@@ -123,7 +125,7 @@ export default function dashboard() {
     }
   };
 
-  // page.jsx
+  // Handling lock on diary using password
   const handleLockSubmit = async (id, password) => {
     try {
       const diary = diaryList.find((diary) => diary.id === id);

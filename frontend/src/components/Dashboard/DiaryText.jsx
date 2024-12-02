@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../navigation/Button";
 
 function DiaryText({ diaryData, setDiaryData, handleSave }) {
+  //handling diary content data coming from form
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDiaryData((prevData) => ({

@@ -1,3 +1,5 @@
+//component for a single diary entry(will be used to render all diaries with different data)
+// data is receiving using props passed
 "use client";
 import React, { useState } from "react";
 import {

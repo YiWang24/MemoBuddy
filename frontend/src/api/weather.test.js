@@ -6,6 +6,7 @@ import { API_ROUTES } from "../constants/index";
 // Mock the axios request
 vi.mock("../lib/axios");
 
+//testing weather api response data with dummy data
 describe("weatherApi", () => {
     const mockLat = 40.7128;
     const mockLon = -74.0060;
