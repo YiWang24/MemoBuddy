@@ -71,6 +71,7 @@ export default function dashboard() {
         message.success("Your diary has been saved successfully!");
         setDiaryData({ title: "", content: "" });
         setSelectedDiaryId(null);
+
         await fetchDiaries();
       } else {
         message.error("Failed to save your diary. Please try again.");

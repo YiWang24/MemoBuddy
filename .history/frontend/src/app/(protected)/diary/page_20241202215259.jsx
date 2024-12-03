@@ -63,14 +63,19 @@ export default function dashboard() {
     try {
       let response;
       if (selectedDiaryId) {
+        // 更新现有日记
         response = await diaryApi.editDiary(selectedDiaryId, diaryData);
       } else {
+        // 创建新日记
         response = await diaryApi.createDiary({ ...diaryData });
       }
+  
       if (response.status === 201 || response.status === 200) {
         message.success("Your diary has been saved successfully!");
         setDiaryData({ title: "", content: "" });
         setSelectedDiaryId(null);
+  
+     
         await fetchDiaries();
       } else {
         message.error("Failed to save your diary. Please try again.");
@@ -80,6 +85,7 @@ export default function dashboard() {
       message.error("Failed to add diary.");
     }
   };
+  
 
   //getting a particular diary by clicking on a diary entry
   const handleGetDiary = async (id) => {

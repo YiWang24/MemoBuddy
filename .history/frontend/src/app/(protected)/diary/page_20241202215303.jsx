@@ -67,10 +67,12 @@ export default function dashboard() {
       } else {
         response = await diaryApi.createDiary({ ...diaryData });
       }
+
       if (response.status === 201 || response.status === 200) {
         message.success("Your diary has been saved successfully!");
         setDiaryData({ title: "", content: "" });
         setSelectedDiaryId(null);
+
         await fetchDiaries();
       } else {
         message.error("Failed to save your diary. Please try again.");
