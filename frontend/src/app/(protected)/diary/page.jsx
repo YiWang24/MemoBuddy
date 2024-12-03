@@ -60,53 +60,25 @@ export default function dashboard() {
   //adding new diary or editing current diary content
   const handleAddDiary = async (e) => {
     e.preventDefault();
-    setNewCheck(false);
-    console.log(selectedDiaryId);
     try {
       let response;
-      if (selectedDiaryId !== null && selectedDiaryId !== undefined) {
-        // Update existing diary
+      if (selectedDiaryId) {
         response = await diaryApi.editDiary(selectedDiaryId, diaryData);
-        setDiaryList((prevList) =>
-          prevList.map((diary) =>
-            diary.id === selectedDiaryId
-              ? {
-                ...diary,
-                title: diaryData.title,
-                content: diaryData.content,
-              }
-              : diary
-          )
-        );
-        setNewCheck(false);
-        setSelectedDiaryId(null);
       } else {
         response = await diaryApi.createDiary({ ...diaryData });
-        setDiaryList((prevList) => [
-          ...prevList,
-          {
-            id: response.data._id,
-            title: diaryData.title,
-            content: diaryData.content,
-            locked: false,
-          },
-        ]);
       }
-
       if (response.status === 201 || response.status === 200) {
-        message.success("Your message has been submitted successfully!");
-        setDiaryData({
-          title: "",
-          content: "",
-        });
+        message.success("Your diary has been saved successfully!");
+        setDiaryData({ title: "", content: "" });
+        setSelectedDiaryId(null);
+        setNewCheck(false);
+        await fetchDiaries();
       } else {
-        message.error(
-          "There was an issue submitting your message. Please try again."
-        );
+        message.error("Failed to save your diary. Please try again.");
       }
-    } catch (e) {
-      console.log("NO response");
-      console.log(e);
+    } catch (error) {
+      console.error("Error adding diary:", error);
+      message.error("Failed to add diary.");
     }
   };
 

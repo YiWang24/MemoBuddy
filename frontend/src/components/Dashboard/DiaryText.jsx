@@ -10,6 +10,7 @@ function DiaryText({ diaryData, setDiaryData, handleSave }) {
       [name]: value,
     }));
   };
+  // console.log(diaryData);
   return (
     <div className="p-4 w-full h-full " onClick={(e) => e.stopPropagation()}>
       <form className="flex flex-col gap-2" onSubmit={handleSave}>
