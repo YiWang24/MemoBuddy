@@ -18,7 +18,7 @@ const CardDiary = ({
 }) => {
   return (
     <div
-      className="grid grid-cols-[8fr_1fr] p-2 border-2 border-black rounded-md"
+      className="grid grid-cols-[8fr_1fr] p-2 border-2 border-black rounded-md cursor-pointer"
       onClick={(e) => {
         e.stopPropagation();
         getDiaryId(id);
