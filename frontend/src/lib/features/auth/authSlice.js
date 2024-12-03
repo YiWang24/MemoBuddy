@@ -69,7 +69,7 @@ const fetchLogin = (loginForm) => async (dispatch) => {
     throw error;
   }
 };
-
+console.log("test")
 const fetchRegister = (registerForm) => async (dispatch) => {
   try {
     const response = await authApi.register(registerForm);
