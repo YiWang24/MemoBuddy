@@ -188,7 +188,6 @@ export default function dashboard() {
 
   useEffect(() => {
     const auth = sessionStorage.getItem("authState");
-    console.log(auth);
     if (auth) {
       setUserId(JSON.parse(auth).user.id);
     }
@@ -203,6 +202,8 @@ export default function dashboard() {
     };
     if (params.googleId && params.email) {
       dispatch(fetchCheckUser(params));
+      const auth = sessionStorage.getItem("authState");
+      setUserId(JSON.parse(auth).user.id);
     }
   }, [searchParams]);
   return (
