@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Button from "../navigation/Button";
-
+import './test.css'
 function DiaryText({ diaryData, setDiaryData, handleSave }) {
   //handling diary content data coming from form
   const handleChange = (e) => {
