@@ -36,7 +36,7 @@ const Form = () => {
       }
     } catch (error) {
       console.error("Error submitting form data:", error);
-      message.error("There was an error. Please try again later.");
+      alert("There was an error. Please try again later.");
     }
   };
 

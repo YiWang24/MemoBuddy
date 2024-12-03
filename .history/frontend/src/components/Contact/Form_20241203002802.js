@@ -32,11 +32,11 @@ const Form = () => {
         message.success("Your message has been submitted successfully!");
         setFormData({ name: "", email: "", subject: "", message: "" }); // Reset form
       } else {
-        message.error("There was an issue submitting your message. Please try again.");
+        message.f("There was an issue submitting your message. Please try again.");
       }
     } catch (error) {
       console.error("Error submitting form data:", error);
-      message.error("There was an error. Please try again later.");
+      alert("There was an error. Please try again later.");
     }
   };
 
