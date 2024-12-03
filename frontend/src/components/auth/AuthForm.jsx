@@ -58,7 +58,7 @@ const AuthForm = ({ formTitle, onSubmit }) => {
           onClick={handleButtonClick}
           type="submit"
           text={formTitle}
-          backgroundColor={"bg-zinc-300"}
+          backgroundColor={"bg-blue-600"}
           textColor={"text-white"}
         />
       </div>
