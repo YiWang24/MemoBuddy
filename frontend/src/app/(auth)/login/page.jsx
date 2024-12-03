@@ -6,15 +6,10 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { message } from "antd";
 import { fetchLogin } from "@/lib/features/auth/authSlice";
-import { authApi } from "@/api";
 
 export default function Login() {
   const router = useRouter();
   const dispatch = useDispatch();
-
-  const handleGoogleLoginClick = async () => {
-    authApi.googleLogin();
-  };
 
   const handleSubmit = async (values) => {
     try {
@@ -51,12 +46,7 @@ export default function Login() {
         {/* login button */}
         <div className="w-[50%]  flex items-center justify-center ">
           <div className="w-[80%] flex flex-col items-center justify-center gap-4">
-            <AuthButton
-              imgURL={SOCIAL_MEDIA[0].src}
-              alt={SOCIAL_MEDIA[0].alt}
-              onClick={handleGoogleLoginClick}
-              text="Continue with Google"
-            />
+
             <AuthButton
               imgURL={SOCIAL_MEDIA[1].src}
               alt={SOCIAL_MEDIA[1].alt}
