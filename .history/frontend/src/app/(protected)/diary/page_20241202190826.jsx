@@ -189,7 +189,7 @@ export default function dashboard() {
   useEffect(() => {
     const auth = sessionStorage.getItem("authState");
     if (auth) {
-      setUserId(JSON.parse(auth).user.id);
+      setUserId(JSON.parse(auth).user.id
     }
     fetchDiaries();
   }, []);
@@ -202,7 +202,7 @@ export default function dashboard() {
     };
     if (params.googleId && params.email) {
       dispatch(fetchCheckUser(params));
-      setUserId(JSON.parse(sessionStorage.getItem("authState")).user.id);
+      const userId = JSON.parse(sessionStorage.getItem("authState")).user.id;
     }
   }, [searchParams]);
   return (

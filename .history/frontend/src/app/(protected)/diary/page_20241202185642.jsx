@@ -10,7 +10,6 @@ import { message } from "antd";
 
 export default function dashboard() {
   const [newCheck, setNewCheck] = useState(false);
-  const [userId, setUserId] = useState(null);
   const [diaryData, setDiaryData] = useState({ title: "", content: "" });
   const [isVisible, setIsVisible] = useState(false);
   const [diaryList, setDiaryList] = useState([]);
@@ -190,7 +189,8 @@ export default function dashboard() {
     const auth = sessionStorage.getItem("authState");
     if (auth) {
       setUserId(JSON.parse(auth).user.id);
-    }
+    } else {
+      
     fetchDiaries();
   }, []);
 
@@ -198,11 +198,9 @@ export default function dashboard() {
     const params = {
       googleId: searchParams.get("googleId"),
       email: searchParams.get("email"),
-      id: searchParams.get("id"),
     };
     if (params.googleId && params.email) {
       dispatch(fetchCheckUser(params));
-      setUserId(JSON.parse(sessionStorage.getItem("authState")).user.id);
     }
   }, [searchParams]);
   return (

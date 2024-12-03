@@ -202,7 +202,7 @@ export default function dashboard() {
     };
     if (params.googleId && params.email) {
       dispatch(fetchCheckUser(params));
-      setUserId(JSON.parse(sessionStorage.getItem("authState")).user.id);
+      const userId = JSON.parse(sessionStorage.getItem("authState")).user.id;
     }
   }, [searchParams]);
   return (

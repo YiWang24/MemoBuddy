@@ -110,12 +110,16 @@ const authController = {
         req.session.user.googleId === googleId &&
         req.session.user.email === email
       ) {
-        const user = await User.findOne({ googleId, email });
         res.status(200).json({
           message: "User is logged in by google",
-          user: user,
+          user: { id: req.session.googleId, email: req.session.user.email },
         });
-        console.log("User is logged in by google: ", user);
+        console.log(
+          "User is logged in by google: ",
+          email,
+          googleId,
+          req.session.user
+        );
       } else {
         throw new Error("Unauthorized");
       }

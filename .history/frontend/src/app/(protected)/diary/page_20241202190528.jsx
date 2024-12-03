@@ -10,7 +10,6 @@ import { message } from "antd";
 
 export default function dashboard() {
   const [newCheck, setNewCheck] = useState(false);
-  const [userId, setUserId] = useState(null);
   const [diaryData, setDiaryData] = useState({ title: "", content: "" });
   const [isVisible, setIsVisible] = useState(false);
   const [diaryList, setDiaryList] = useState([]);
@@ -202,8 +201,8 @@ export default function dashboard() {
     };
     if (params.googleId && params.email) {
       dispatch(fetchCheckUser(params));
-      setUserId(JSON.parse(sessionStorage.getItem("authState")).user.id);
     }
+    // setUserId();
   }, [searchParams]);
   return (
     <>

@@ -115,7 +115,7 @@ const authController = {
           message: "User is logged in by google",
           user: user,
         });
-        console.log("User is logged in by google: ", user);
+        console.log("User is logged in by google: ", req.session.user);
       } else {
         throw new Error("Unauthorized");
       }
