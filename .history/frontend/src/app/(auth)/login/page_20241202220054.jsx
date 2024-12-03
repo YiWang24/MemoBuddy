@@ -8,8 +8,6 @@ import { message } from "antd";
 import { fetchLogin } from "@/lib/features/auth/authSlice";
 import { authApi } from "@/api";
 
-// Login page
-
 export default function Login() {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -19,7 +17,7 @@ export default function Login() {
     authApi.googleLogin();
   };
 
-  // use for user log in with email and password
+  // use for user 
   const handleSubmit = async (values) => {
     try {
       await dispatch(fetchLogin(values));
@@ -30,7 +28,6 @@ export default function Login() {
     }
   };
 
-  // redirect to register page
   const handleSignUpClick = () => {
     router.push("/register");
   };

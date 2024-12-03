@@ -28,11 +28,10 @@ const authController = {
         throw new Error("All fields are required");
       }
       await checkUserExists(email, false);
-
+      
       //use local strategy to register user
       const newUser = new User({ email });
       await User.register(newUser, password);
-  
       res.status(201).json({
         message: "User registered successfully",
         user: { id: newUser._id, email: newUser.email },

@@ -30,7 +30,6 @@ export default function Login() {
     }
   };
 
-  // redirect to register page
   const handleSignUpClick = () => {
     router.push("/register");
   };

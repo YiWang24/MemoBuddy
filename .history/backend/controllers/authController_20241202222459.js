@@ -32,7 +32,11 @@ const authController = {
       //use local strategy to register user
       const newUser = new User({ email });
       await User.register(newUser, password);
-  
+       // Automatically log in the user after registration
+    req.login(newUser, (err) => {
+      if (err) {
+        return next(err);
+      }
       res.status(201).json({
         message: "User registered successfully",
         user: { id: newUser._id, email: newUser.email },
@@ -51,7 +55,7 @@ const authController = {
         throw new Error("All fields are required");
       }
       const user = await checkUserExists(email);
-
+      
       //use local strategy to authenticate user
       user.authenticate(password, (err, authenticatedUser) => {
         if (err || !authenticatedUser) {

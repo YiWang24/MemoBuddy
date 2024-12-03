@@ -32,7 +32,11 @@ const authController = {
       //use local strategy to register user
       const newUser = new User({ email });
       await User.register(newUser, password);
-  
+      req.session.user = {
+        id: user._id,
+        email: user.email,
+        name: user.name,
+      };
       res.status(201).json({
         message: "User registered successfully",
         user: { id: newUser._id, email: newUser.email },

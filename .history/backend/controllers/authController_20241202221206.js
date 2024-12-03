@@ -30,14 +30,13 @@ const authController = {
       await checkUserExists(email, false);
 
       //use local strategy to register user
-      const newUser = new User({ email });
-      await User.register(newUser, password);
-  
+      // const newUser = new User({ email });
+      const user = await User.register(newUser, password);
       res.status(201).json({
         message: "User registered successfully",
-        user: { id: newUser._id, email: newUser.email },
+        user: { id: user._id, email: user.email },
       });
-      console.log("User registered successfully: ", newUser.email);
+      console.log("User registered successfully: ", user.email);
     } catch (error) {
       next(error);
     }

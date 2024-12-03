@@ -75,7 +75,7 @@ const fetchRegister = (registerForm) => async (dispatch) => {
     const response = await authApi.register(registerForm);
     console.log(response)
     // dispatch(loginSuccess(response.data));
-    return response.data;
+    // return response.data;
   } catch (error) {
     dispatch(loginFailure(error.message));
     throw error;
