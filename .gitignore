@@ -19,7 +19,7 @@ venv/
 # Ignore IDE specific files
 .vscode/
 .idea/
-
+.history/
 # Ignore environment variable files
 .env
 
