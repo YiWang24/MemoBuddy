@@ -1,1 +1,0 @@
-import { weatherApi } from "./weather";
